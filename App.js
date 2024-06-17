@@ -1,3 +1,5 @@
+import React from "react"
+import ReactDOM from "react-dom"
 // Creating HTML tag using JS
 
 {/* <script>
@@ -8,12 +10,13 @@
 
 // Creating HTML tag using React.createElement
 // It takes three arguments ( tag, attributes, child/children)
-// React elements are nothing but plain JS objects
+// React elements are nothing but plain JS objects  //////important\\\\\\
 const heading = React.createElement("h1", {}, "hello world !!!"); // JS OBJ
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//root.render will convert this obj to html tag and put it in DOM ( Document Object Model)
+
+//root.render will convert this obj to html tag and put it in DOM ( Document Object Model) //////important\\\\\\
 // root.render(heading);
 
 {
@@ -29,7 +32,7 @@ const parent = React.createElement(
   "div",
   { id: "parent" },
   React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am h1 tag"),
+    React.createElement("h1", {}, "I am h11 tag"),
     React.createElement("h2", {}, "I am h2 tag"),
   ])
 );
