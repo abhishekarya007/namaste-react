@@ -1,54 +1,68 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// Creating HTML tag using JS
 
-{
-  /* <script>
-  const heading = document.createElement('h1') heading.innerHTML = 'Hii this is
-  Abhishek Kumar' const rootElement = document.getElementById('root')
-  rootElement.appendChild(heading)
-</script>; */
-}
+const RestroCard = () => {
+  return (
+    <div className="restro-card">
+      <img
+        className="restro-img"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/FOOD_CATALOG/IMAGES/CMS/2024/5/17/d631b9cf-86f2-44af-9346-f9d784da49fa_1f2dd979-e264-42c8-bb8b-c0f23c2e4dca.jpg"
+      ></img>
+      <div>Biryani By Bihari's</div>
+      <div>North Indian</div>
+      <div>Bihar</div>
+      <div>30 min</div>
+    </div>
+  );
+};
 
-// Creating HTML tag using React.createElement
-// It takes three arguments ( tag, attributes, child/children)
-// React elements are nothing but plain JS objects  //////important\\\\\\
-const heading = React.createElement("h1", {}, "hello world !!!"); // JS OBJ
+const Header = () => {
+  return (
+    <div className="header-container">
+      <img
+        className="img-container"
+        src="https://imgs.search.brave.com/6CXLcDnPDQdpAXmbafinYC0bCZfO2akucSs440WfmfE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wZW5q/aS5jby93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMi8wOC80LmRl/bGl2ZXJ5LWhlcm8t/bG9nby5qcGc"
+      ></img>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li>Cart</li>
+      </ul>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <>
+      <Header />
+      <div className="search">Search</div>
+      <div className="restro-container">
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+        <RestroCard />
+      </div>
+    </>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// ## JSX is HTML like syntax while is used to write react code to make it readable as writing the whole code using React.createElement
-//     will not be readable
-// ## Babel converts JSX - > React.createElement - > ReactElement - > JS onject  - > Reandered by ReactDOM
-// ## Babel is not part of react and also it is not created by facebook unlike React
-
-const headingJsx = (
-  <div>
-    <h1 className="name">Namaste React</h1>
-  <h1 className="name">Namaste React</h1>
-  </div>
-
-)
-
-//root.render will convert this obj to html tag and put it in DOM ( Document Object Model) //////important\\\\\\
-// root.render(heading);
-
-{
-  /* <div id="parent">
-  <div id="child">
-    <h1>I am h1 tag</h1>
-    <h2>I am h2 tag</h2>
-  </div>
-</div> */
-}
-
-// const parent = React.createElement(
-//   "div",
-//   { id: "parent" },
-//   React.createElement("div", { id: "child" }, [
-//     React.createElement("h1", {}, "I am h11 tag"),
-//     React.createElement("h2", {}, "I am h2 tag"),
-//   ])
-// );
-
-root.render(headingJsx);
+root.render(<AppLayout />);
