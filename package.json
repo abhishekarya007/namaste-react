@@ -4,7 +4,8 @@
   "description": "namaste react course",
   "main": "App.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel index.html"
   },
   "author": "Abhishek Kumar",
   "license": "ISC",
