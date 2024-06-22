@@ -22,31 +22,44 @@ li {
 }
 
 .search {
-    margin: 10px 0px;
+  margin: 10px 0px;
 }
 
 .restro-img {
-    width: 200px;
-    height: 150px;
+  width: 200px;
+  height: 150px;
 }
 
 .restro-card {
-    width: 200px;
-    padding: 5px;
-    margin: 10px;
+  width: 200px;
+  padding: 5px;
+  margin: 10px;
+  background-color: #f0f0f0;
 }
 
 .restro-card:hover {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .restro-container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cusines {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shimmerUi {
+  width: 250px;
+  height:200px;
+  margin: 10px;
+  background-color: #f0f0f0;
+}
+
+.btn {
+    margin-top: 10px;
+    font-size: 15px;
 }
