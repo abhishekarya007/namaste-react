@@ -2,7 +2,7 @@ import { cdnUrl } from "../Utils/Constants";
 
 const RestroCard = (props) => {
   let { restroInfo } = props;
-  let { name, cuisines, areaName, costForTwo } = restroInfo.info;
+  let { name, cuisines, areaName, costForTwo ,avgRating} = restroInfo.info;
 
   return (
     <div className="restro-card">
@@ -14,6 +14,7 @@ const RestroCard = (props) => {
       <div className="cusines">{cuisines.join(",")}</div>
       <div>{areaName}</div>
       <div>{costForTwo}</div>
+      <div>{"Avg Rating : " + avgRating}</div>
     </div>
   );
 };
