@@ -5,6 +5,8 @@ import { retroInfoApiUrl } from "../Utils/Constants";
 
 const Body = () => {
   const [restroList, setRetroList] = useState([]);
+  const [renderRestroList, setRenderRestroList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -16,6 +18,9 @@ const Body = () => {
     setRetroList(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setRenderRestroList(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   const filterCards = () => {
@@ -23,18 +28,39 @@ const Body = () => {
       return restaurant.info.avgRating > 4.5;
     });
 
-    setRetroList(filteredRestro);
+    setRenderRestroList(filteredRestro);
   };
   return (
     <>
-      <button className="btn" onClick={filterCards}>
-        Get Top Restaurants
-      </button>
-      {restroList.length === 0 ? (
+      <div className="search-container">
+        <input
+          type="text"
+          value={searchText}
+          onChange={(ev) => {
+            setSearchText(ev.target.value);
+          }}
+        ></input>
+        <button
+          onClick={() => {
+            setSearchText(searchText.toLowerCase());
+            let filteredRestro = restroList.filter((restaurant) =>
+              restaurant.info.name.toLowerCase().includes(searchText)
+            );
+            setRenderRestroList(filteredRestro);
+          }}
+          className="btn"
+        >
+          Search
+        </button>
+        <button className="btn" onClick={filterCards}>
+          Get Top Restaurants
+        </button>
+      </div>
+      {renderRestroList.length === 0 ? (
         <ShimmerUi />
       ) : (
         <div className="restro-container">
-          {restroList.map((restaurant) => (
+          {renderRestroList.map((restaurant) => (
             <RestroCard key={restaurant.info.id} restroInfo={restaurant} />
           ))}
         </div>
