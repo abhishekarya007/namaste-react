@@ -2,6 +2,7 @@ import RestroCard from "../components/RestroCard";
 import { useState, useEffect } from "react";
 import ShimmerUi from "../components/ShimmerUi";
 import { retroInfoApiUrl } from "../Utils/Constants";
+import {Link} from "react-router-dom"
 
 const Body = () => {
   const [restroList, setRetroList] = useState([]);
@@ -61,7 +62,7 @@ const Body = () => {
       ) : (
         <div className="restro-container">
           {renderRestroList.map((restaurant) => (
-            <RestroCard key={restaurant.info.id} restroInfo={restaurant} />
+            <Link className="link" to={"restro/"+restaurant.info.id}><RestroCard key={restaurant.info.id} restroInfo={restaurant} /></Link>
           ))}
         </div>
       )}
