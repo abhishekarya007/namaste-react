@@ -1,25 +1,10 @@
 import {useParams} from "react-router-dom"
-import { restroMenuApiUrl } from "../Utils/Constants"
-import {useEffect} from "react"
+import useGetRestroMenu from "../Utils/useGetRestroMenu"
 
 const RestroMenu = () => {
 
     const {resId} = useParams()
-
-    useEffect( () => {
-
-        fetchData()
-
-    }, [])
-
-    const fetchData = async () => {
-
-        const data = await fetch(restroMenuApiUrl + resId)
-        const json = await data.json()
-        console.log(json);
-
-    }
-    
+    const restroMenu = useGetRestroMenu(resId)
 
     return (
         <div>
