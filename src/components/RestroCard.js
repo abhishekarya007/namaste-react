@@ -7,7 +7,7 @@ const RestroCard = (props) => {
   return (
     <div className="flex flex-col bg-gray-100 m-5 w-[200px] p-1 rounded-md hover:bg-gray-300">
       <img
-        className="w-fit"
+        className="w-fit h-[225px]"
         src={cdnUrl + restroInfo.info.cloudinaryImageId}
       ></img>
       <div className="whitespace-nowrap overflow-hidden text-ellipsis">
