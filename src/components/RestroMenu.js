@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import useGetRestroMenu from "../Utils/useGetRestroMenu";
 import RestroCategory from "./RestroCategory";
+import { useState } from "react";
 
 const RestroMenu = () => {
   const { resId } = useParams();
   const restroMenu = useGetRestroMenu(resId);
+  const [showIndex, setShowIndex] = useState(0);
   const restroInfo = restroMenu?.cards[2]?.card?.card?.info;
   const categories =
     restroMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -24,8 +26,15 @@ const RestroMenu = () => {
         </div>
         <div> ⭐️ {restroInfo?.avgRating}</div>
       </div>
-      {categories?.map((category,indx) => (
-        <RestroCategory key={indx} card={category?.card?.card} index={indx}/>
+      {categories?.map((category, index) => (
+        <RestroCategory
+          key={index}
+          card={category?.card?.card}
+          showIndex={index === showIndex}
+          setShowIndex={() => {
+            showIndex === index ? setShowIndex(null) : setShowIndex(index)
+          }}
+        />
       ))}
     </>
   );
