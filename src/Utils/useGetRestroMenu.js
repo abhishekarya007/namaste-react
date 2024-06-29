@@ -11,7 +11,7 @@ const useGetRestroMenu = (resId) => {
   const fetchData = async () => {
     const data = await fetch(restroMenuApiUrl + resId);
     const json = await data.json();
-    setRestroMenu(json)
+    setRestroMenu(json.data)
   };
   return restroMenu
 };

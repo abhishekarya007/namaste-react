@@ -64,8 +64,8 @@ const Body = () => {
       ) : (
         <div className="flex flex-wrap">
           {renderRestroList.map((restaurant) => (
-            <Link className="link" to={"restro/" + restaurant.info.id}>
-              <RestroCard key={restaurant.info.id} restroInfo={restaurant} />
+            <Link key={restaurant.info.id} className="link" to={"restro/" + restaurant.info.id}>
+              <RestroCard restroInfo={restaurant} />
             </Link>
           ))}
         </div>
