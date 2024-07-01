@@ -1,21 +1,25 @@
-import React, {lazy,Suspense} from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { createBrowserRouter, RouterProvider , Outlet} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ContactUs from "./components/ContactUs";
 import RestroMenu from "./components/RestroMenu";
+import User from "./Utils/UserContext";
 
 const AppLayout = () => {
   return (
     <>
-      <Header />
-      <Outlet/>
+      <User.Provider value={{ name: "Abhishek" }}>
+        <Header />
+      </User.Provider>
+
+      <Outlet />
     </>
   );
 };
 
-const AboutUs = lazy(()=>import("./components/AboutUs"))
+const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const router = createBrowserRouter([
   {
@@ -25,24 +29,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        element: <Body />,
+        element: (
+          <User.Provider value={{ name: "Arya" }}>
+            <Body />
+          </User.Provider>
+        ),
       },
       {
         path: "about",
-        element: <Suspense fallback={<div>Loading.....</div>}><AboutUs/></Suspense>
+        element: (
+          <Suspense fallback={<div>Loading.....</div>}>
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
         path: "contact",
-        element: <ContactUs/>
+        element: <ContactUs />,
       },
       {
         path: "/home/restro/:resId",
-        element: <RestroMenu/>
-      }
-
-    ]
+        element: <RestroMenu />,
+      },
+    ],
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
