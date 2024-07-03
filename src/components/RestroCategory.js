@@ -10,11 +10,8 @@ const RestroCategory = ({ card, showIndex, setShowIndex }) => {
 
   return (
     <div>
-      <div
-        onClick={handleOnClick}
-        className="w-7/12 p-3 m-auto my-5 shadow-lg cursor-pointer"
-      >
-        <div className="flex justify-between">
+      <div className="w-7/12 p-3 m-auto my-5 shadow-lg">
+        <div onClick={handleOnClick} className="flex justify-between cursor-pointer">
           <span className="text-xl font-bold">
             {card?.title} ({card?.itemCards.length})
           </span>

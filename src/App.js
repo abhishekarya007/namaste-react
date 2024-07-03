@@ -6,15 +6,18 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ContactUs from "./components/ContactUs";
 import RestroMenu from "./components/RestroMenu";
 import User from "./Utils/UserContext";
+import { Provider } from "react-redux";
+import AppStore from "./Utils/appStore";
 
 const AppLayout = () => {
   return (
     <>
-      <User.Provider value={{ name: "Abhishek" }}>
-        <Header />
-      </User.Provider>
-
-      <Outlet />
+      <Provider store={AppStore}>
+        <User.Provider value={{ name: "Abhishek" }}>
+          <Header />
+          <Outlet />
+        </User.Provider>
+      </Provider>
     </>
   );
 };
