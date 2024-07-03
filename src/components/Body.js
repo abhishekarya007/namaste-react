@@ -35,6 +35,7 @@ const Body = () => {
     <>
       <div className="flex gap-5 m-5 ml-1">
         <input
+          autoFocus
           className="border border-black rounded-md text-center"
           type="text"
           placeholder="Search Restro"
@@ -55,7 +56,10 @@ const Body = () => {
         >
           Search
         </button>
-        <button className="border border-black p-1 px-2 rounded-md bg-blue-100" onClick={filterCards}>
+        <button
+          className="border border-black p-1 px-2 rounded-md bg-blue-100"
+          onClick={filterCards}
+        >
           Get Top Restaurants
         </button>
       </div>
@@ -64,7 +68,11 @@ const Body = () => {
       ) : (
         <div className="flex flex-wrap">
           {renderRestroList.map((restaurant) => (
-            <Link key={restaurant.info.id} className="link" to={"restro/" + restaurant.info.id}>
+            <Link
+              key={restaurant.info.id}
+              className="link"
+              to={"restro/" + restaurant.info.id}
+            >
               <RestroCard restroInfo={restaurant} />
             </Link>
           ))}
