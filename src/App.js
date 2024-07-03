@@ -8,6 +8,7 @@ import RestroMenu from "./components/RestroMenu";
 import User from "./Utils/UserContext";
 import { Provider } from "react-redux";
 import AppStore from "./Utils/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   return (
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/home/restro/:resId",
         element: <RestroMenu />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

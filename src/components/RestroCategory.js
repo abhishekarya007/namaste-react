@@ -2,7 +2,6 @@ import { useState } from "react";
 import RestroAccordionInfo from "./RestroAccordionInfo";
 
 const RestroCategory = ({ card, showIndex, setShowIndex }) => {
-  console.log(card);
 
   const handleOnClick = () => {
     setShowIndex();
